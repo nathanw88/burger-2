@@ -43,7 +43,7 @@ router.put("/burgers/update/:id", function(req, res) {
       // render back to index with handle
       // Send back response and let page reload from .then in Ajax
       res.send(result)
-      console.log("here")
+    
       // res.redirect()
     });
 });
