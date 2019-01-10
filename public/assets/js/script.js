@@ -1,10 +1,15 @@
-$(".devour-form").on("click", function(event){
+$("#devour").on("click", function (event) {
   event.preventDefault()
-  var id = $(".burger_id").val()
-  
-  $.ajax("/burgers/update/" + id, {type: "PUT"}).then(function(res){
-    console.log("what")
-    window.location.reload(true)
-  })
-  // window.location.reload(true)
+  if ($("#user").val().trim()) {
+    var user = {
+      burgerId: $(".burger_id").val().trim(),
+      user_name: $("#user").val().trim()
+    }
+    $.post("/burgers/eaten", user).then(function (response) {
+      $.ajax("/burgers/update/" + user.burgerId, { type: "PUT" }).then(function (res) {
+        window.location.reload(true)
+      })
+    })
+  }
+
 })

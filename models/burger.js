@@ -6,7 +6,10 @@ module.exports = function(sequelize, DataTypes) {
       primaryKey: true,
       autoIncrement: true
     },
-    burger_name: DataTypes.STRING,
+    burger_name: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     devoured: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
@@ -16,32 +19,13 @@ module.exports = function(sequelize, DataTypes) {
     updatedAt: DataTypes.DATE
 
   });
+  burger.associate = function(models) {
+    // We're saying that a Post should belong to an Author
+    // A Post can't be created without an Author due to the foreign key constraint
+    burger.hasOne(models.user, {
+     
+    });
+  };
   return burger;
 };
 
-
-// CREATE TABLE burgers (
-//   id int NOT NULL AUTO_INCREMENT,
-//   burger_name varchar(255) NOT NULL,
-//   devoured BOOL DEFAULT false,
-//   PRIMARY KEY (id)
-// );
-
-// var burger = {
-//   all: function(cb) {
-//     orm.all("burgers", function(res) {
-//       cb(res);
-//     });
-//   },
-//   create: function(name, cb) {
-//     orm.create("burgers", ["burger_name", "devoured"], [name, false], cb);
-//   },
-//   update: function(id, cb) {
-//     var condition = "id=" + id;
-//     orm.update("burgers", {
-//       devoured: true
-//     }, condition, cb);
-//   }
-// };
-
-// module.exports = burger;

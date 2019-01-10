@@ -28,14 +28,14 @@ app.use(express.static("public"));
 // Routes
 // =============================================================
 
-var routes = require("./controllers/burgers_controller");
+require("./routes/html-route")(app);
+require("./routes/api-routes")(app);
 
-app.use(routes);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-db.sequelize.sync().then(function() {
-  app.listen(PORT, function() {
+db.sequelize.sync({ force: true }).then(function () {
+  app.listen(PORT, function () {
     console.log("App listening on PORT " + PORT);
   });
 });
