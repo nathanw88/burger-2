@@ -1,6 +1,6 @@
 # burger-2
 
-website that allows you create virtual burgers and to be able to devour them you have to give the name of who ate it.
+website that allows you to create virtual burgers upon adding a burger you will have an input box to the right of it that can be used to type in the name of the person who ate it, with a button below that will submit what ate the burger and will move the burger to the right adding on the name of who devoured it.
 
 ### Prerequisites
 
