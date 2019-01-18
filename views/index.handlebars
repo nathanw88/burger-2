@@ -16,7 +16,7 @@
 				<div class="col-sm-3 text-center">
 
 					<form class="devour-form" class="button-size">
-            <input type="text" class="form-control username" value="" id="user" required>
+            <input type="text" class="form-control username" value="" placeholder="Devourer" id="user" required>
 						<input type="hidden" class="burger_id" type="text" value="{{this.id}}"><br>
 						<button type="submit" id="devour" class="btn btn-default">Devour it!</button>
 					</form>
@@ -28,7 +28,7 @@
 		<div class="col-sm-6 text-center" class="task">
 			  {{#each burgers}}
 			  	{{#if this.devoured}}
-			  		<input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}  Eaten by:{{this.user.user_name}}" readonly>
+			  		<input class="form-control" type="text" placeholder="{{this.id}} . {{this.burger_name}}  Eaten by: {{this.user.user_name}}" readonly>
 				{{/if}}
 			  {{/each}}
 		</div>
